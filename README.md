@@ -18,27 +18,13 @@ pip install pywin32
 scrapy startproject Scraper
 ```
 
-### Create Folder
+### Create file Crawler
 ```commandline
 spiders/quotes.py
 ```
-### quotes.py
-```commandline
-import scrapy
 
-class QuoteSpider(scrapy.Spider):
-    name = 'quotes'
-    start_urls = [
-        'https://quotes.toscrape.com/'
-    ]
-    
-    title = response.css('title::text').extract()
-        yield {
-            'title': title
-        }
-```
 
-### Basic command
+### Basic shell command
 ```commandline
 response
 response.css("title")
@@ -50,6 +36,34 @@ response.css(".text::text").getall()
 response.css(".author::text").getall()
 ```
 
+### quotes.py
+```commandline
+import scrapy
+
+class QuoteSpider(scrapy.Spider):
+    name = 'quotes'
+    start_urls = [
+        'https://quotes.toscrape.com/'
+    ]
+    
+        def parse(self, response):
+        all_quotes = response.css('div.quote')
+        for quotes in all_quotes:
+            content = quotes.css('.text::text').get()
+            author = quotes.css('.author::text').get()
+            tag = quotes.css('.tag::text').getall()
+
+            yield {
+                'content': content,
+                'author': author,
+                'tag': tag,
+            }
+
+            # Next pages
+            next_page = response.css('li.next a::attr(href)').get()
+            if next_page is not None:
+                yield response.follow(next_page, callback=self.parse)
+```
 ### Start Crawl
 ```commandline
 scrapy crawl quotes
