@@ -1,4 +1,4 @@
-# Scrapy settings for Scraper project
+# Scrapy settings for Template project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,17 +7,16 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "Scraper"
+BOT_NAME = "Template"
 
-SPIDER_MODULES = ["Scraper.spiders"]
-NEWSPIDER_MODULE = "Scraper.spiders"
-
+SPIDER_MODULES = ["Template.spiders"]
+NEWSPIDER_MODULE = "Template.spiders"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "Scraper (+http://www.yourdomain.com)"
+#USER_AGENT = "Template (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -45,13 +44,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "Scraper.middlewares.ScraperSpiderMiddleware": 543,
+#    "Template.middlewares.TemplateSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "Scraper.middlewares.ScraperDownloaderMiddleware": 543,
+#    "Template.middlewares.TemplateDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +62,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "Scraper.pipelines.ScraperPipeline": 300,
+#    "Template.pipelines.TemplatePipeline": 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -91,3 +90,9 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+
+# DOWNLOAD_HANDLERS = {
+#     "http": 'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler',
+#     "https": 'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler',
+# }

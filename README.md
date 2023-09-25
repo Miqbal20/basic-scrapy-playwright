@@ -11,6 +11,7 @@ scrapy shell 'https://quotes.toscrape.com/'
 pip install scrapy
 pip install pyopenssl
 pip install pywin32
+pip install scrapy_playwright
 ```
 
 ### Start Project
@@ -23,6 +24,13 @@ scrapy startproject Scraper
 spiders/quotes.py
 ```
 
+### settings.py
+```commandline
+DOWNLOAD_HANDLERS = {
+    "http": 'scrapy_playwright.handler.ScrapyPlayWrightDownloadHandler',
+    "https": 'scrapy_playwright.handler.ScrapyPlayWrightDownloadHandler',
+}
+```
 
 ### Basic shell command
 ```commandline
