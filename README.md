@@ -12,6 +12,7 @@ pip install scrapy
 pip install pyopenssl
 pip install pywin32
 pip install scrapy_playwright
+pip install scrapy-selenium
 ```
 
 ### Start Project
