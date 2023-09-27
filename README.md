@@ -1,4 +1,8 @@
-## Tutorial
+```
+I create this note when I start this project, I made this because I was forgetful person
+```
+
+## Installation
 https://quotes.toscrape.com
 ```commandline
 scrapy shell 'https://quotes.toscrape.com/'
