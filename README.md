@@ -1,6 +1,4 @@
-# Basis Scrapy
 ## Tutorial
-### Target
 https://quotes.toscrape.com
 ```commandline
 scrapy shell 'https://quotes.toscrape.com/'
